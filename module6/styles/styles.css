@@ -1,0 +1,168 @@
+        img		{ 
+			max-width: 100%;
+			float: right; /* YOU CAN FLOAT AN ELEMENT WITHIN A GRID AREA */
+			padding: .5em;
+		}
+		
+		body {
+			font-size: 100%;
+		}
+
+		figcaption {
+			font-family: arial;
+		}
+
+		h1 {
+			position: relative;
+			top: -0.2em;
+			left: 2em;
+			font-family: Verdana;
+			width: 95%;
+			padding: .5em;
+		}
+
+		h2, h3 {
+			font-family: Verdana;
+			width: 95%;
+			padding: .5em;
+		}
+		
+		p {
+			width: 95%;
+			padding: .5em;
+			font-family: arial;
+		}
+		
+		header {
+            grid-area: header;
+            background-color: #D8BFD8;
+        }
+
+        nav {
+            grid-area: nav;
+            background-color: #E6E6FA;
+			padding: 0.5em;
+			font-size: 110%;
+			text-align: center;
+        }
+
+        main {
+            grid-area: main;
+            background-color: #F8F8FF;
+        }
+
+        aside {
+            grid-area: aside;
+            background-color: #E6E6FA;
+			padding: 0.2em;
+			text-align: center;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #D8BFD8;
+			font-size: 85%;
+			text-align: center;
+        }
+		
+		table, th, td {
+			table-layout: auto;
+			border: 1px solid #000000;
+			border-collapse: collapse;
+			background-color: #F8F8FF;
+			padding: .5em;
+			font-family: arial;
+			
+		}	
+		
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header aside'
+                'nav nav main main main aside'
+                'nav nav main main main aside'
+                'nav nav main main main aside'
+				'footer footer footer footer footer footer';
+            grid-gap: .25em;
+            padding: .5em;
+			
+			max-width: 75em; /* DEFAULT WAS 62 EM- GIVE CONTAINER A WIDTH AND MARGINS IF YOU DO NOT WANT FULL SCREEN */
+			margin: auto;
+        }
+
+
+        ul li {
+            list-style-type: square;
+			font-family: arial;
+        }
+
+
+        /*FIRST BREAK POINT === tablet */
+        @media only screen and (max-width : 600px) {
+		/* DEFAULT WAS 900px */
+            body {
+                background: #E6E6FA;
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-areas:
+                                        'header header header header header header'
+					'nav nav nav nav nav nav'
+                    'main main main main aside aside'
+                    'footer footer footer footer footer footer';
+                grid-gap: .5em;
+                padding: .5em;
+            }
+
+			h1 {
+				position: static;
+			
+			}
+
+            ul li {
+                display: inline-block;
+				list-style-type: square;
+            }
+
+        }
+
+        /*SECOND BREAK POINT === mobile */
+        @media only screen and (max-width : 400px) {
+		/* DEFAULT WAS 600px */
+
+            body {
+                background: #E6E6FA;
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-areas:
+                    'nav nav nav nav nav nav'
+                    'header header header header header header'
+                    'main main main main main main'
+                    'aside aside aside aside aside aside'
+                    'footer footer footer footer footer footer';
+                grid-gap: .5em;
+                padding: .5em;
+            }
+
+            ul li {
+                display: inline-block;
+				list-style-type: square;
+            }
+
+			h1 {
+				position: static;
+			
+			}
+			
+			img {
+				display: none; /* AND YOU CAN MAKE THINGS DISAPPEAR WHEN NOT NEEDED */
+			}
+			
+			iframe {
+				display: none;
+			}
+
+        }
